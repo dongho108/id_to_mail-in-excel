@@ -3,7 +3,7 @@
 
 작년부터 스마트스토어에서 영어교재를 판매하고있다.
 
-[스마트스토어]: https://smartstore.naver.com/double00k
+https://smartstore.naver.com/double00k
 
 교재를 구매한 학생들에게 변형문제와 유의어등 시험에 도움이 될만한 자료를 추가로 보내주기로 약속했다.
 
