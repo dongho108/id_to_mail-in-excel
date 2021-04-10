@@ -1,5 +1,30 @@
+# For
+네이버 스마트 스토어에서 물건을 판매중이고, 구매자들의 아이디를 메일로 변환해야 할 필요가 있는 사람.
 
-# 프로젝트 시작 동기
+
+
+# How To Use
+## python version
+3.6
+
+## 라이브러리
+pandas   
+openpyxl   
+xlrd   
+## 사용방법
+1. python 코드를 내려받는다.
+2. 변수 초기화    
+* 엑셀 파일 명 : '발송처리yyyymmdd' 형식
+* item : 엑셀에서 '상품명'에 해당하는 데이터중 뽑을 데이터를 str로 넣어준다. ("2020년 3월 모의고사 동영쌤 손필기 [고1, 고2]")
+* prefix : 해당 엑셀파일의 경로중 앞부분을 입력한다. ('/경로/발송처리yyyy')
+* suffix : 엑셀파일의 형식을 입력한다. ('.xlsx')
+* date_list : 원하는 날짜의 엑셀을 고르기 위한 리스트 이다. (['0408', ['0409'])
+3. excel_mail_extraction.py 파일 실행
+
+
+
+
+# Project Start
 
 작년부터 스마트스토어에서 영어교재를 판매하고있다.   
 
@@ -39,11 +64,6 @@ https://smartstore.naver.com/double00k
 ## 엑셀 읽기
 
 
-### 라이브러리
-pandas   
-openpyxl   
-xlrd   
-
 
 ### 변수
 prefix : 배송엑셀들을 모아놓은 폴더 접근   
@@ -76,44 +96,6 @@ ids = xl_ids.values
 ![pandas_list](https://user-images.githubusercontent.com/54317630/113139380-fed83f80-9261-11eb-8662-0bb93ec1fca7.png)
 
 
-
-
-
-## id를 mail로 변환
-
-### 구현
-ids에서 @naver.com 을 붙이고 리스트에 담으면된다.
-
-
-
-## main함수
-
-### 구현
-main에서는 여러 날짜(여러 엑셀파일)을 다 돌려서 메일주소를 받아야한다.   
-그리고 중복된 메일이 있을 수 있다. 그래서 set에 넣었다가 다시 list로 가져왔다.   
-네이버 메일은 한번에 최대 100명까지 메일을 보낼 수 있다. 그래서 100개 단위로 나눠서 출력해야한다.   
-
-
-
-## 출력 결과
-![output](https://user-images.githubusercontent.com/54317630/113139385-fed83f80-9261-11eb-9c08-1d3dc8952896.png)
-
-## 어려웠던 부분
-
-### 1.
-engine='openpyxl'을 붙이지 않았을 때   
-"xlrd.biffh.XLRDError: Excel xlsx file; not supported" 오류가 발생했다.   
-pandas에서 엑셀파일을 어떤 엔진으로 읽을지 정해줘야 했다.   
-
-
-
-### 2.
-pandas의 dataframe 형식에서 "데이터"만을 추출해야했다.   
-.value 를 붙였는데   
-" AttributeError: 'DataFrame' object has no attribute 'value' "   
-오류가 발생했다.   
-
-근데 value가 아니라 values를 붙여야 했다.
 
 
 
